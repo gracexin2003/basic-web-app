@@ -19,5 +19,16 @@ export default function QueryProcessor(query: string): string {
     )
   }
 
+  let match = query.toLowerCase().match(/what is (\d+) plus (\d+)/i)
+  if (match) {
+    const x = parseInt(match[1], 10);
+    const y = parseInt(match[2], 10);
+
+    if (!isNaN(x) && !isNaN(y)) {
+      const sum = x + y;
+      return sum.toString();
+    }
+  }
+
   return "";
 }
