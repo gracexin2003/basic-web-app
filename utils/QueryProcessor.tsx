@@ -30,5 +30,17 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  match = query.toLowerCase().match(/which of the following numbers is the largest: (\d+), (\d+), (\d+)/i)
+  if (match) {
+    const x = parseInt(match[1], 10);
+    const y = parseInt(match[2], 10);
+    const z = parseInt(match[3], 10);
+
+    if (!isNaN(x) && !isNaN(y) && !isNaN(z)) {
+      const max = Math.max(x, Math.max(y, z));
+      return max.toString();
+    }
+  }
+
   return "";
 }
