@@ -25,4 +25,20 @@ describe("QueryProcessor", () => {
             "gxin"
           ));
     });
+
+    test('should return sum', () => {
+        const query = "What is 27 plus 49?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "76"
+          ));
+    });
+
+    test('should return largest', () => {
+        const query = "Which of the following numbers is the largest: 95, 10, 46?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe((
+            "95"
+          ));
+    });
 });
