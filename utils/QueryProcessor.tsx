@@ -41,6 +41,18 @@ export default function QueryProcessor(query: string): string {
       return max.toString();
     }
   }
+  // What is 60 multiplied by 36?
+
+  match = query.toLowerCase().match(/what is (\d+) multiplied by (\d+)/i)
+  if (match) {
+    const x = parseInt(match[1], 10);
+    const y = parseInt(match[2], 10);
+
+    if (!isNaN(x) && !isNaN(y)) {
+      const product = x * y;
+      return product.toString();
+    }
+  }
 
   return "";
 }
